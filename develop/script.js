@@ -1,10 +1,16 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
 $(document).ready(function() {
-  $('#saveBtn').click(function(){
-    console.log("click")
-  })
+  $('#hour-9 #saveBtn').click(function(){
+    var userInput = $("textarea[id=textInput]").val();
+    $("#hour-9 ol").append("<li>" + userInput + "</li>");
+    $("textarea[id=textInput]").val("");
+  });
+  $("ol").on("dblclick", "li", function(){
+    $(this).toggleClass("strike");
+  });
 });
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
